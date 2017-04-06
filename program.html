@@ -10,7 +10,7 @@
 			#programPort {
 				background: #FFC107;
 				width: 100%;
-				height: 100vh;
+				height: 0vh;
 				margin-left: auto;
 				margin-right: auto;
 				box-shadow: 0px 0px 20px #FFC107;
@@ -44,6 +44,7 @@
 			function scan() {
 				const scanVis = document.getElementById("programPort");
 				const scanGro = document.getElementById("scanGround");
+				scanVis.style.height = "100vh";
 				setTimeout( function () {
 					var snd = new Audio("https://prazma.github.io/scanar/snd/scan.mp3");
 					snd.play();
