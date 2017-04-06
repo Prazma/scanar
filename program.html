@@ -21,16 +21,43 @@
 				margin-right: -50%;
 				transform: translate(-50%, -50%);
 				opacity: 0.7;
+				transition: 2s;
+				-webkit-transition: 2s;
+			}
+			#scanGround {
+				position: absolute;
+				background: #FFC107;
+				top: 100%;
+				height: 8px;
+				width: 100%;
+				box-shadow: 0px 0px 20px #FFC107;
+				transition: 2s;
+				-webkit-transition: 2s;
 			}
 		</style>
 	</head>
 	<body onload="scan()">
 		<div id="programPort"></div>
+		<div id="scanGround"></div>
 		<div id="loaderPrefix"></div>
 		<script>
 			function scan() {
-				var snd = new Audio("sud/scan.mp3");
-				snd.play();
+				const scanVis = document.getElementById("programPort");
+				const scanGro = document.getElementById("scanGround");
+				setTimeout( function () {
+					var snd = new Audio("sud/scan.mp3");
+					snd.play();
+					scanVis.style.background = "#000000";
+					scanVis.style.top = "30%";
+					scanVis.style.width = "40%";
+					scanVis.style.height = "40vh";
+					scanVis.style.opacity = "0";
+				}, 2000)
+				setTimeout( function () {
+					scanGro.style.top = "50%";
+					scanGro.style.opacity = "0";
+					scanGro.style.height = "1px";
+				}, 2070)
 			}
 		</script>
 	</body>
