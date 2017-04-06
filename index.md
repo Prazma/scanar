@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/DamonOehlman/ccv.js.png?branch=master)](https://travis-ci.org/DamonOehlman/ccv.js)
+## Launch
+[Launch Project](https://prazma.github.io/scan/project.html)
 
-## About Project
+## About
 This program built by [Prazma](https://prazma.github.io).
 
 Built with the following languages:
