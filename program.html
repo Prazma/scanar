@@ -41,12 +41,12 @@
 		<div id="scanGround"></div>
 		<div id="loaderPrefix"></div>
 		<script>
+			var snd = new Audio("https://prazma.github.io/scanar/snd/scan.mp3");
 			function scan() {
 				const scanVis = document.getElementById("programPort");
 				const scanGro = document.getElementById("scanGround");
 				scanVis.style.height = "100vh";
 				setTimeout( function () {
-					var snd = new Audio("https://prazma.github.io/scanar/snd/scan.mp3");
 					snd.play();
 					scanVis.style.background = "#000000";
 					scanVis.style.top = "30%";
