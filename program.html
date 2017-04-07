@@ -48,6 +48,15 @@
 				const scanVis = document.getElementById("programPort");
 				const scanGro = document.getElementById("scanGround");
 				scanVis.style.height = "100vh";
+				if (window.DeviceOrientationEvent) {
+					window.addEventListener("deviceorientation", function(event) {
+						var beta = (Math.round(event.beta));  
+						var gamma = (Math.round(event.gamma));
+						var alpah = (Math.round(event.alpha));  
+					}, true);
+				} else {
+						alert("Sorry, your browser doesn't support Device Orientation");
+				}
 				setTimeout( function () {
 					snd.play();
 					scanVis.style.background = "#000000";
