@@ -38,7 +38,7 @@
 				transition: 2s;
 				-webkit-transition: 2s;
 			}
-			#loaderPrefix {
+			.prefer {
 				margin-top: 200px;
 				margin-left: auto;
 				margin-right: auto;
@@ -51,23 +51,52 @@
 				transition: 0.5s;
 				-webkit-transition: 0.5s;
 				opacity: 0;
+				position: static;
+			}
+			.btn {
+				background: #08e8d1;
+				color: #ffffff;
+				font-size: 20px;
+				padding: 10px;
+				border-radius: 10px;
+				box-shadow: 0px 0px 10px #08e8d1;
+				margin-top: 10px;
+				border: none;
+				outline: none;
 			}
 		</style>
 	</head>
 	<body onload="setup()">
-		<div id="programPort"></div>
+		<div id="programPort" style="z-index: -1;"></div>
 		<div id="scanGround"></div>
-		<div id="loaderPrefix"><span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span></div>
+		<div id="loaderPrefix" class="prefer" style="position: static; z-index: 5;"><span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn">QUICK SCAN</button></div>
+		<div id="processPrefix" class="prefer"><span style="font-size: 30px;">PROCESSING...</span></div>
 		<script>
 			var snd = new Audio("https://prazma.github.io/scanar/snd/scan.mp3");
 			function setup() {
 				const sign = document.getElementById("loaderPrefix");
+				sign.style.opacity = "1";
+				sign.style.padding = "15px";
+				sign.style.marginTop = "185px";
 			}
+			document.querySelector('#QuickScanBTN').onclick = function() {
+				const sign = document.getElementById("loaderPrefix");
+				sign.style.opacity = "0";
+				sign.style.padding = "0px";
+				sign.style.marginTop = "200px";
+				setTimeout( function () {
+					scan();
+				}, 1000)
+			};
 			function scan() {
 				const scanVis = document.getElementById("programPort");
 				const scanGro = document.getElementById("scanGround");
+				const proxy = document.getElementById("loaderPrefix");
 				scanGro.style.height = "20px";
 				scanVis.style.height = "100vh";
+				proxy.style.opacity = "0";
+				proxy.style.padding = "0px";
+				proxy.style.marginTop = "200px";
 				setTimeout( function () {
 					snd.play();
 					scanVis.style.background = "#000000";
@@ -81,6 +110,30 @@
 					scanGro.style.opacity = "0";
 					scanGro.style.height = "1px";
 				}, 2070)
+				setTimeout( function () {
+					proxy.innerHTML = "<span style='font-size: 30px;'>PROCESSING...</span>";
+					proxy.style.opacity = "1";
+					proxy.style.padding = "15px";
+					proxy.style.marginTop = "185px";
+					scanGro.style.top = "100%";
+					scanGro.style.opacity = "1";
+					scanVis.style.background = "#FFC107";
+					scanVis.style.top = "50%";
+					scanVis.style.width = "100%";
+					scanVis.style.height = "0vh";
+					scanVis.style.opacity = "1";
+				}, 4170)
+				setTimeout( function () {
+					proxy.style.opacity = "0";
+					proxy.style.padding = "0px";
+					proxy.style.marginTop = "200px";
+				}, 5170)
+				setTimeout( function () {
+					proxy.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn" onclick="scan()">QUICK SCAN</button>';
+				}, 5670)
+				setTimeout( function () {
+					setup();
+				}, 6270)
 			}
 		</script>
 	</body>
