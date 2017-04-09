@@ -69,72 +69,8 @@
 	<body onload="setup()">
 		<div id="programPort" style="z-index: -1;"></div>
 		<div id="scanGround"></div>
-		<div id="loaderPrefix" class="prefer" style="position: static; z-index: 5;"><span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn">QUICK SCAN</button></div>
+		<div id="loaderPrefix" class="prefer"></div>
 		<div id="processPrefix" class="prefer"><span style="font-size: 30px;">PROCESSING...</span></div>
-		<script>
-			var snd = new Audio("https://prazma.github.io/scanar/snd/scan.mp3");
-			function setup() {
-				const sign = document.getElementById("loaderPrefix");
-				sign.style.opacity = "1";
-				sign.style.padding = "15px";
-				sign.style.marginTop = "185px";
-			}
-			document.querySelector('#QuickScanBTN').onclick = function() {
-				const sign = document.getElementById("loaderPrefix");
-				sign.style.opacity = "0";
-				sign.style.padding = "0px";
-				sign.style.marginTop = "200px";
-				setTimeout( function () {
-					scanVis();
-				}, 1000)
-			};
-			function scanVis() {
-				const scanVis = document.getElementById("programPort");
-				const scanGro = document.getElementById("scanGround");
-				const proxy = document.getElementById("loaderPrefix");
-				scanGro.style.height = "20px";
-				scanVis.style.height = "100vh";
-				proxy.style.opacity = "0";
-				proxy.style.padding = "0px";
-				proxy.style.marginTop = "200px";
-				setTimeout( function () {
-					snd.play();
-					scanVis.style.background = "#000000";
-					scanVis.style.top = "30%";
-					scanVis.style.width = "40%";
-					scanVis.style.height = "40vh";
-					scanVis.style.opacity = "0";
-				}, 2000)
-				setTimeout( function () {
-					scanGro.style.top = "50%";
-					scanGro.style.opacity = "0";
-					scanGro.style.height = "1px";
-				}, 2070)
-				setTimeout( function () {
-					proxy.innerHTML = "<span style='font-size: 30px;'>PROCESSING...</span>";
-					proxy.style.opacity = "1";
-					proxy.style.padding = "15px";
-					proxy.style.marginTop = "185px";
-					scanGro.style.top = "100%";
-					scanGro.style.opacity = "1";
-					scanVis.style.background = "#FFC107";
-					scanVis.style.top = "50%";
-					scanVis.style.width = "100%";
-					scanVis.style.height = "0vh";
-					scanVis.style.opacity = "1";
-				}, 4170)
-				setTimeout( function () {
-					proxy.style.opacity = "0";
-					proxy.style.padding = "0px";
-					proxy.style.marginTop = "200px";
-				}, 5170)
-				setTimeout( function () {
-					proxy.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn" onclick="scanVis()">QUICK SCAN</button>';
-				}, 5670)
-				setTimeout( function () {
-					setup();
-				}, 6270)
-			}
-		</script>
+		<script src="js/scanar.visual.js"></script>
 	</body>
 </html>
