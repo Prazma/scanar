@@ -1,12 +1,12 @@
  var snd = new Audio("snd/scan.mp3");
  function setup() {
  const sign = document.getElementById("loaderPrefix");
- sign.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn">QUICK SCAN</button>';
+ sign.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn" onclick="denox()">QUICK SCAN</button>';
  sign.style.opacity = "1";
  sign.style.padding = "15px";
  sign.style.marginTop = "85px";
  }
- document.querySelector('#QuickScanBTN').onclick = function() {
+ function denox() {
  const sign = document.getElementById("loaderPrefix");
  sign.style.opacity = "0";
  sign.style.padding = "0px";
