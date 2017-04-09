@@ -85,10 +85,10 @@
 				sign.style.padding = "0px";
 				sign.style.marginTop = "200px";
 				setTimeout( function () {
-					scan();
+					scanVis();
 				}, 1000)
 			};
-			function scan() {
+			function scanVis() {
 				const scanVis = document.getElementById("programPort");
 				const scanGro = document.getElementById("scanGround");
 				const proxy = document.getElementById("loaderPrefix");
@@ -129,7 +129,7 @@
 					proxy.style.marginTop = "200px";
 				}, 5170)
 				setTimeout( function () {
-					proxy.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn" onclick="scan()">QUICK SCAN</button>';
+					proxy.innerHTML = '<span style="font-size: 30px;">scanar</span><br><span>SCAN THROUGH SOLID OBJECT</span><br><span><strong>Note: </strong>Keep your device facing forward to scan accurately.</span><br><button id="QuickScanBTN" class="btn" onclick="scanVis()">QUICK SCAN</button>';
 				}, 5670)
 				setTimeout( function () {
 					setup();
